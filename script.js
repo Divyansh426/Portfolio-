@@ -72,7 +72,7 @@ projectCards.forEach((card) => {
     });
 });
 
-// Form validation and submission
+
 const contactForm = document.getElementById('contactForm');
 const formFeedback = document.getElementById('formFeedback');
 
