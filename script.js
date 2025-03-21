@@ -1,20 +1,16 @@
-// script.js
 
-// Select the theme toggle button
 const themeToggle = document.getElementById('themeToggle');
 
-// Function to toggle between day and night mode
+
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
 
-    // Update the button icon
     themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 
-    // Save theme preference to localStorage
     localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 }
 
-// Load the saved theme from localStorage
+
 function loadSavedTheme() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -25,13 +21,13 @@ function loadSavedTheme() {
     }
 }
 
-// Add an event listener to the theme toggle button
+
 themeToggle.addEventListener('click', toggleTheme);
 
-// Call the loadSavedTheme function on page load
+
 loadSavedTheme();
 
-// Typing effect for the "I'm Divyansh Mishra" text
+
 const typingText = document.querySelector('.typing');
 const words = ['a Developer.', 'a Designer.', 'a Problem Solver.'];
 let wordIndex = 0;
@@ -43,7 +39,7 @@ function typeEffect() {
         letterIndex++;
         setTimeout(typeEffect, 150);
     } else {
-        setTimeout(eraseEffect, 1000); // Pause before erasing
+        setTimeout(eraseEffect, 1000); 
     }
 }
 
@@ -53,15 +49,15 @@ function eraseEffect() {
         letterIndex--;
         setTimeout(eraseEffect, 100);
     } else {
-        wordIndex = (wordIndex + 1) % words.length; // Move to the next word
-        setTimeout(typeEffect, 300); // Pause before typing the next word
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeEffect, 300); 
     }
 }
 
-// Start the typing effect on page load
+
 typeEffect();
 
-// Add hover effects to project cards
+
 const projectCards = document.querySelectorAll('.project-card');
 
 projectCards.forEach((card) => {
@@ -81,9 +77,9 @@ const contactForm = document.getElementById('contactForm');
 const formFeedback = document.getElementById('formFeedback');
 
 contactForm.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
-    // Form validation
+    
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
@@ -94,17 +90,17 @@ contactForm.addEventListener('submit', (event) => {
         return;
     }
 
-    // Simulate form submission (you can integrate a backend here)
+ 
     setTimeout(() => {
         formFeedback.textContent = 'Thank you for reaching out! I will get back to you soon.';
         formFeedback.style.color = 'green';
 
-        // Clear form fields
+       
         contactForm.reset();
     }, 1000);
 });
 
-// Add hover effect to social media buttons
+
 const socialButtons = document.querySelectorAll('.media .btn');
 
 socialButtons.forEach((button) => {
@@ -120,7 +116,7 @@ socialButtons.forEach((button) => {
 });
 
 
-// Skill card hover effect
+
 const skillCards = document.querySelectorAll('.skill-card');
 skillCards.forEach((card) => {
     card.addEventListener('mouseover', () => {
@@ -134,7 +130,7 @@ skillCards.forEach((card) => {
     });
 });
 
-// Typing animation for "About Me" intro
+
 const introText = document.querySelector('.intro-text');
 const text = "Hello! I'm Divyansh Mishra, an engineering graduate passionate about coding, problem-solving, and impactful solutions.";
 let index = 0;
@@ -147,27 +143,27 @@ function typeIntro() {
     }
 }
 
-// Start typing animation on page load
+
 typeIntro();
 
-// Dynamic background effect for Interests Section
+
 const interestsSection = document.querySelector('.interests');
 
 function createBubbles() {
     const bubble = document.createElement('span');
     bubble.className = 'bubble';
-    const size = Math.random() * 50 + 10; // Random size
+    const size = Math.random() * 50 + 10;
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;
     bubble.style.left = `${Math.random() * 100}%`;
     bubble.style.animationDuration = `${Math.random() * 5 + 2}s`;
     interestsSection.appendChild(bubble);
 
-    // Remove the bubble after animation ends
+    
     setTimeout(() => {
         bubble.remove();
     }, 7000);
 }
 
-// Create bubbles periodically
+
 setInterval(createBubbles, 500);
